@@ -1,0 +1,20 @@
+pipeline{
+
+         agent any
+         stages {
+          stage ('checkout'){
+            steps{
+               checkout scm
+               }
+               }
+               stage('build'){
+               steps{
+               echo 'build complete'
+               }
+               }
+               stage('test'){
+               steps{
+               echo 'test complete'
+               }
+               }
+               }
