@@ -1,21 +1,34 @@
-pipeline{
-
-         agent any
-         stages {
-          stage ('checkout'){
-            steps{
-               checkout scm
-               }
-               }
-               stage('build'){
-               steps{
-               echo 'build complete'
-               }
-               }
-               stage('test'){
-               steps{
-               echo 'test complete'
-               }
-               }
-               }
-}
+pipeline {
+    agent any
+        stages {
+            stage ('checkout') {
+                steps {
+                     checkout scm
+                }
+            }
+            stage ('build') {
+                steps {
+                echo"build is complete"
+                }
+                 }
+            stage ('test') {
+            steps {
+            echo"test is complete"
+            }
+            }
+            stage ('cloning repository') {
+            steps {
+             sh ("""
+                  git config --global  user.name agiratech-poovarasan
+                  git config --global  user.email poovarasan.p@agiratech.com
+                  git clone https://github.com/agiratech-poovarasan/Nestle.git
+                  """)
+                   }
+                   }
+            stage ('deploy') {
+            steps {
+            sh " cp -r /var/lib/jenkins/workspace/Nestle/index.html /var/www/Nestle.com/public_html
+            }
+            }
+        }
+    }
