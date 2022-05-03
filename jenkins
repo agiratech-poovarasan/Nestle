@@ -27,7 +27,7 @@ pipeline {
                    }
             stage ('deploy') {
             steps {
-            sh " cp -r /var/lib/jenkins/workspace/Nestle/index.html /var/www/Nestle.com/public_html
+            sh " cp -r /var/lib/jenkins/workspace/Nestle/index.html /var/www/Nestle.com/public_html"
             }
             }
         }
