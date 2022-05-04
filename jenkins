@@ -21,7 +21,7 @@ pipeline {
              sh ("""
                   git config --global  user.name agiratech-poovarasan
                   git config --global  user.email poovarasan.p@agiratech.com
-                  git clone https://github.com/agiratech-poovarasan/Nestle.git
+                 rm -rf Nestle && git clone https://github.com/agiratech-poovarasan/Nestle.git
                   """)
                    }
                    }
